@@ -1,8 +1,8 @@
 [theme]
-primaryColor = "#2563eb"
-backgroundColor = "#f0f2f5"
+primaryColor = "#3b82f6"
+backgroundColor = "#f8fafc"
 secondaryBackgroundColor = "#ffffff"
-textColor = "#111827"
+textColor = "#1e293b"
 font = "sans serif"
 
 [server]
@@ -10,6 +10,7 @@ headless = true
 port = 8501
 enableCORS = false
 enableXsrfProtection = true
+maxUploadSize = 200
 
 [browser]
 gatherUsageStats = false

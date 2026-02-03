@@ -15,7 +15,7 @@ def load_custom_css():
         
         /* Global styles */
         .stApp {
-            background-color: #f0f2f5;
+            background-color: #f8fafc;
         }
         
         /* Hide Streamlit default elements */
@@ -25,11 +25,11 @@ def load_custom_css():
         
         /* Custom header */
         .custom-header {
-            background-color: #151f32;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.25rem 2rem;
             margin: -1rem -1rem 2rem -1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         .header-content {
@@ -118,11 +118,12 @@ def load_custom_css():
         
         /* Page title bar */
         .page-title-bar {
-            background-color: #354a65;
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.25rem 2rem;
             margin: -1rem -1rem 2rem -1rem;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
         }
         
         .page-title {
@@ -134,20 +135,26 @@ def load_custom_css():
         /* Cards */
         .custom-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
             margin-bottom: 1.5rem;
+            transition: box-shadow 0.2s;
+        }
+        
+        .custom-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .card-header {
-            border-bottom: 1px solid #f3f4f6;
+            border-bottom: 2px solid #e2e8f0;
             padding-bottom: 1rem;
             margin-bottom: 1rem;
-            background-color: #f8fafc;
+            background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
             margin: -1.5rem -1.5rem 1rem -1.5rem;
             padding: 1.25rem 1.5rem;
+            border-radius: 12px 12px 0 0;
         }
         
         .card-title {
@@ -182,27 +189,31 @@ def load_custom_css():
         }
         
         .badge-warning {
-            background-color: #fef3c7;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             color: #92400e;
-            border: 1px solid #fde68a;
+            border: 1px solid #fbbf24;
+            font-weight: 600;
         }
         
         .badge-success {
-            background-color: #d1fae5;
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
             color: #065f46;
-            border: 1px solid #a7f3d0;
+            border: 1px solid #34d399;
+            font-weight: 600;
         }
         
         .badge-info {
-            background-color: #dbeafe;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
             color: #1e40af;
-            border: 1px solid #bfdbfe;
+            border: 1px solid #60a5fa;
+            font-weight: 600;
         }
         
         .badge-danger {
-            background-color: #fee2e2;
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
             color: #991b1b;
-            border: 1px solid #fecaca;
+            border: 1px solid #f87171;
+            font-weight: 600;
         }
         
         /* Form inputs */
@@ -218,18 +229,22 @@ def load_custom_css():
         
         /* Buttons */
         .stButton button {
-            border-radius: 6px;
-            font-weight: 500;
-            padding: 0.5rem 1.5rem;
-            transition: all 0.2s;
+            border-radius: 8px;
+            font-weight: 600;
+            padding: 0.625rem 1.75rem;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
         }
         
         .stButton button[kind="primary"] {
-            background-color: #2563eb;
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            border: none;
         }
         
         .stButton button[kind="primary"]:hover {
-            background-color: #1d4ed8;
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
         }
         
         /* Progress bar */
@@ -255,9 +270,10 @@ def load_custom_css():
         
         .progress-fill {
             height: 100%;
-            background-color: #2563eb;
+            background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
             border-radius: 9999px;
             transition: width 0.3s;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
         }
         
         /* Data display */
@@ -298,16 +314,17 @@ def load_custom_css():
         }
         
         .upload-icon {
-            background-color: #2563eb;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             color: white;
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
         
         /* Footer */
