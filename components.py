@@ -1,21 +1,21 @@
 """
 CE-LIMS Shared Components
-Reusable UI components matching the design mockup
+Reusable UI components matching the design mockup EXACTLY
 """
 
 import streamlit as st
 from auth import get_current_user, logout, get_role_name
 
 def load_custom_css():
-    """Load custom CSS matching the mockup design"""
+    """Load custom CSS matching the mockup design EXACTLY"""
     st.markdown("""
         <style>
         /* Import fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap');
         
-        /* Global styles */
+        /* Global styles - EXACT colors from mockup */
         .stApp {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            background-color: #f0f2f5;
         }
         
         /* Hide Streamlit default elements */
@@ -23,14 +23,13 @@ def load_custom_css():
         footer {visibility: hidden;}
         header {visibility: hidden;}
         
-        /* Custom header */
+        /* Custom header - EXACT #151f32 */
         .custom-header {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-            border-bottom: 3px solid #d4af37;
-            color: #d4af37;
-            padding: 1.25rem 2rem;
+            background-color: #151f32;
+            color: white;
+            padding: 1rem 2rem;
             margin: -1rem -1rem 2rem -1rem;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .header-content {
@@ -48,26 +47,21 @@ def load_custom_css():
         }
         
         .logo-icon {
-            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-            width: 36px;
-            height: 36px;
-            border-radius: 6px;
+            background: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+            font-size: 1.2rem;
         }
         
         .logo-text {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: bold;
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            color: white;
         }
         
         .nav-links {
@@ -77,19 +71,18 @@ def load_custom_css():
         }
         
         .nav-link {
-            color: #888888;
+            color: #9ca3af;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: color 0.2s;
         }
         
         .nav-link:hover {
-            color: #d4af37;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            color: white;
         }
         
         .nav-link.active {
-            color: #d4af37;
-            border-bottom: 2px solid #d4af37;
+            color: #60a5fa;
+            border-bottom: 2px solid #60a5fa;
             padding-bottom: 1.25rem;
         }
         
@@ -100,15 +93,13 @@ def load_custom_css():
         }
         
         .user-avatar {
-            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-            width: 36px;
-            height: 36px;
+            background: #4b5563;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid #d4af37;
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
         }
         
         .user-info {
@@ -119,23 +110,21 @@ def load_custom_css():
         
         .user-name {
             font-weight: 500;
+            color: white;
         }
         
         .user-role {
-            color: #888888;
+            color: #9ca3af;
             font-family: 'Tajawal', sans-serif;
         }
         
-        /* Page title bar */
+        /* Page title bar - EXACT #354a65 */
         .page-title-bar {
-            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
-            border-top: 2px solid #d4af37;
-            border-bottom: 2px solid #d4af37;
-            color: #d4af37;
-            padding: 1.25rem 2rem;
+            background-color: #354a65;
+            color: white;
+            padding: 1rem 2rem;
             margin: -1rem -1rem 2rem -1rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
         }
         
         .page-title {
@@ -144,39 +133,30 @@ def load_custom_css():
             font-family: 'Inter', 'Tajawal', sans-serif;
         }
         
-        /* Cards */
+        /* Cards - White background */
         .custom-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-            border-radius: 12px;
+            background: white;
+            border-radius: 8px;
             padding: 1.5rem;
-            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
-            border: 2px solid #d4af37;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
             margin-bottom: 1.5rem;
-            transition: all 0.3s;
-        }
-        
-        .custom-card:hover {
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
-            border-color: #f4d03f;
-            transform: translateY(-2px);
         }
         
         .card-header {
-            border-bottom: 2px solid #d4af37;
+            border-bottom: 1px solid #f3f4f6;
             padding-bottom: 1rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            background-color: #f8fafc;
             margin: -1.5rem -1.5rem 1rem -1.5rem;
             padding: 1.25rem 1.5rem;
-            border-radius: 10px 10px 0 0;
         }
         
         .card-title {
             font-size: 1.125rem;
             font-weight: bold;
-            color: #d4af37;
+            color: #1f2937;
             font-family: 'Inter', 'Tajawal', sans-serif;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
         
         /* Bilingual text */
@@ -187,14 +167,14 @@ def load_custom_css():
         }
         
         .separator {
-            color: #d4af37;
+            color: #9ca3af;
         }
         
         .arabic-text {
             font-family: 'Tajawal', sans-serif;
         }
         
-        /* Badges */
+        /* Badges - Yellow from mockup */
         .badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -204,74 +184,61 @@ def load_custom_css():
         }
         
         .badge-warning {
-            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-            color: #000000;
-            border: 2px solid #d4af37;
-            font-weight: 700;
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #fde68a;
         }
         
         .badge-success {
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-            color: #d4af37;
-            border: 2px solid #d4af37;
-            font-weight: 700;
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
         }
         
         .badge-info {
-            background: linear-gradient(135deg, #d4af37 0%, #c9a02d 100%);
-            color: #000000;
-            border: 2px solid #d4af37;
-            font-weight: 700;
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            background-color: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
         }
         
         .badge-danger {
-            background: linear-gradient(135deg, #8b7355 0%, #6b5644 100%);
-            color: #d4af37;
-            border: 2px solid #d4af37;
-            font-weight: 700;
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
         }
         
         /* Form inputs */
         .stTextInput input, .stNumberInput input, .stSelectbox select, .stTextArea textarea {
-            background-color: #1a1a1a !important;
-            color: #d4af37 !important;
-            border: 2px solid #d4af37 !important;
-            border-radius: 8px !important;
+            border-color: #d1d5db !important;
+            border-radius: 6px !important;
+            background-color: white !important;
+            color: #374151 !important;
         }
         
         .stTextInput input:focus, .stNumberInput input:focus, .stSelectbox select:focus, .stTextArea textarea:focus {
-            border-color: #f4d03f !important;
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3) !important;
-            background-color: #0f0f0f !important;
+            border-color: #0e6ede !important;
+            box-shadow: 0 0 0 1px #0e6ede !important;
         }
         
-        /* Buttons */
+        /* Buttons - Brand blue #0e6ede */
         .stButton button {
-            border-radius: 8px;
-            font-weight: 700;
-            padding: 0.75rem 2rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-            border: 2px solid #d4af37;
+            border-radius: 6px;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.2s;
         }
         
         .stButton button[kind="primary"] {
-            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-            color: #000000;
-            border: 2px solid #d4af37;
+            background-color: #0e6ede;
+            color: white;
+            border: none;
         }
         
         .stButton button[kind="primary"]:hover {
-            background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(212, 175, 55, 0.5);
+            background-color: #0c5bc4;
         }
         
-        /* Progress bar */
+        /* Progress bar - Dark blue #314a6b */
         .progress-container {
             margin-top: 1rem;
         }
@@ -282,23 +249,22 @@ def load_custom_css():
             font-size: 0.75rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: #374151;
         }
         
         .progress-bar {
             width: 100%;
-            height: 10px;
-            background-color: #1a1a1a;
-            border: 1px solid #d4af37;
+            height: 8px;
+            background-color: #e5e7eb;
             border-radius: 9999px;
             overflow: hidden;
         }
         
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #d4af37 0%, #f4d03f 100%);
+            background-color: #314a6b;
             border-radius: 9999px;
             transition: width 0.3s;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
         
         /* Data display */
@@ -313,75 +279,66 @@ def load_custom_css():
         
         .data-label {
             font-weight: 600;
-            color: #d4af37;
+            color: #374151;
             font-size: 0.875rem;
             margin-bottom: 0.25rem;
         }
         
         .data-value {
-            color: #ffffff;
+            color: #111827;
             font-size: 0.875rem;
         }
         
-        /* Upload area */
+        /* Upload area - Blue dashed border */
         .upload-area {
-            border: 3px dashed #d4af37;
-            border-radius: 12px;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(26, 26, 26, 0.8) 100%);
-            padding: 2.5rem;
+            border: 2px dashed #93c5fd;
+            border-radius: 8px;
+            background-color: rgba(59, 130, 246, 0.05);
+            padding: 2rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
         
         .upload-area:hover {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(26, 26, 26, 0.9) 100%);
-            border-color: #f4d03f;
-            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+            background-color: rgba(59, 130, 246, 0.1);
         }
         
         .upload-icon {
-            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-            color: #000000;
-            width: 64px;
-            height: 64px;
+            background-color: #0e6ede;
+            color: white;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-            border: 3px solid #d4af37;
         }
         
         /* Footer */
         .custom-footer {
             text-align: center;
             padding: 2rem;
-            color: #888888;
+            color: #6b7280;
             font-size: 0.75rem;
             margin-top: 3rem;
-            border-top: 2px solid #d4af37;
         }
         
         /* Table styles */
         .dataframe {
             font-size: 0.875rem !important;
-            background-color: #1a1a1a !important;
         }
         
         .dataframe th {
-            background: linear-gradient(135deg, #d4af37 0%, #c9a02d 100%) !important;
-            font-weight: 700 !important;
-            color: #000000 !important;
-            border: 1px solid #d4af37 !important;
+            background-color: #f9fafb !important;
+            font-weight: 600 !important;
+            color: #374151 !important;
         }
         
         .dataframe td {
-            color: #d4af37 !important;
-            background-color: #0f0f0f !important;
-            border: 1px solid #333333 !important;
+            color: #111827 !important;
         }
         
         /* Responsive */
@@ -425,80 +382,53 @@ def show_page_title(title_en, title_ar):
     st.markdown(f"""
         <div class="page-title-bar">
             <div class="page-title">
-                {title_en} <span class="separator">/</span> <span class="arabic-text">{title_ar}</span>
+                {title_en} / {title_ar}
             </div>
         </div>
     """, unsafe_allow_html=True)
 
-def show_footer():
-    """Display footer"""
-    st.markdown("""
-        <div class="custom-footer">
-            <div>
-                © 2024 CE-LIMS. All rights reserved. <span class="separator">/</span> 
-                <span class="arabic-text">٢٠٢٤. جميع الحقوق محفوظة.</span>
-            </div>
-        </div>
-    """, unsafe_allow_html=True)
-
-def bilingual_text(text_en, text_ar, separator="/"):
-    """Display bilingual text"""
-    return f'{text_en} <span class="separator">{separator}</span> <span class="arabic-text">{text_ar}</span>'
-
-def show_badge(text_en, text_ar, badge_type="info"):
-    """Display badge"""
-    return f'<span class="badge badge-{badge_type}">{text_en} <span class="separator">/</span> <span class="arabic-text">{text_ar}</span></span>'
-
-def show_progress_bar(label_en, label_ar, percentage):
-    """Display progress bar"""
+def show_card(title_en, title_ar, content):
+    """Display a custom card"""
     st.markdown(f"""
+        <div class="custom-card">
+            <div class="card-header">
+                <div class="card-title">{title_en} / {title_ar}</div>
+            </div>
+            {content}
+        </div>
+    """, unsafe_allow_html=True)
+
+def show_badge(text, badge_type="warning"):
+    """Display a status badge"""
+    return f'<span class="badge badge-{badge_type}">{text}</span>'
+
+def show_progress(label_en, label_ar, percentage):
+    """Display a progress bar"""
+    return f"""
         <div class="progress-container">
             <div class="progress-label">
-                <span>{label_en} / <span class="arabic-text">{label_ar}</span></span>
+                <span>{label_en} / {label_ar}</span>
                 <span>{percentage}%</span>
             </div>
             <div class="progress-bar">
                 <div class="progress-fill" style="width: {percentage}%"></div>
             </div>
         </div>
-    """, unsafe_allow_html=True)
+    """
 
 def show_data_row(label_en, label_ar, value):
-    """Display data row"""
-    st.markdown(f"""
+    """Display a data row"""
+    return f"""
         <div class="data-row">
-            <div class="data-label">{label_en} <span class="separator">/</span> <span class="arabic-text">{label_ar}</span></div>
+            <div class="data-label">{label_en} / {label_ar}</div>
             <div class="data-value">{value}</div>
         </div>
+    """
+
+def show_footer():
+    """Display custom footer"""
+    st.markdown("""
+        <div class="custom-footer">
+            © 2024 CE-LIMS. All rights reserved. / جميع الحقوق محفوظة.
+        </div>
     """, unsafe_allow_html=True)
-
-def get_status_badge(status):
-    """Get status badge HTML"""
-    status_map = {
-        'registered': ('Registered', 'مسجل', 'info'),
-        'assigned': ('Assigned', 'معين', 'info'),
-        'in_progress': ('In Progress', 'جاري العمل', 'warning'),
-        'completed': ('Completed', 'مكتمل', 'success'),
-        'approved': ('Approved', 'معتمد', 'success'),
-        'rejected': ('Rejected', 'مرفوض', 'danger'),
-        'archived': ('Archived', 'مؤرشف', 'info'),
-    }
-    
-    if status in status_map:
-        text_en, text_ar, badge_type = status_map[status]
-        return show_badge(text_en, text_ar, badge_type)
-    return status
-
-def get_priority_badge(priority):
-    """Get priority badge HTML"""
-    priority_map = {
-        'low': ('Low', 'منخفض', 'info'),
-        'normal': ('Normal', 'عادي', 'info'),
-        'high': ('High', 'عالي', 'warning'),
-        'urgent': ('Urgent', 'عاجل', 'danger'),
-    }
-    
-    if priority in priority_map:
-        text_en, text_ar, badge_type = priority_map[priority]
-        return show_badge(text_en, text_ar, badge_type)
-    return priority
